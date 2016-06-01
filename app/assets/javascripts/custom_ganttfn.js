@@ -5,7 +5,7 @@ function ganttfn(){
       setTimeout(function() {
         var b = bar.dataset.date * 100/10;
         if(b>=99){
-        	b=100;
+          b=100;
         }
         b+=8;
         b+="%";

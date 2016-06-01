@@ -151,7 +151,11 @@
             <div class="col-xs-10">
               <div class="bar2">
               <div class="bar2-innertask" data-task =""></div>
+                <% if a == 0 %>
+                <div id="<%=i%>th-gantt" class="bar-innerday bar-<%=a%>" data-date="<%=a%>" data-display ="D -day"></div>
+                <% else %>
                 <div id="<%=i%>th-gantt" class="bar-innerday bar-<%=a%>" data-date="<%=a%>" data-display ="D -<%=a%>"></div>
+                <% end %>
               </div>
             </div>
             <div class="col-xs-2" style="word-wrap:break-word; word-break:break-all; text-align: right;">
