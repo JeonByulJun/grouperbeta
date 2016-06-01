@@ -213,7 +213,9 @@
 
   								<div class="col-md-4">
   									<div class="bar">
+                      <% if (taskdo.wansungdo).to_i != 0 %>
   								  	<div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>" id="bar_disappear"data-percent="<%=(taskdo.wansungdo).to_i %>%"></div>
+                      <% end %>
   									</div>
   									<script> horild(); </script>
   								</div>
@@ -329,7 +331,11 @@
             </div>
             <div class="col-md-3">
               <div class="bar" id="mediachart" style="float:right;">
-                <div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>" data-percent="<%=(taskdo.wansungdo).to_i %>%"></div>
+                <% if (taskdo.wansungdo).to_i != 0 %>
+                <div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>" id="mediachart" data-percent="<%=(taskdo.wansungdo).to_i %>%"></div>
+                <% else %>
+                <div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>"></div>
+                <% end %>
               </div>
               <script> horild(); </script>
             </div>
@@ -375,7 +381,11 @@
   					</div>
   					<div class="col-md-3">
   						<div class="bar" id="mediachart" style="float:right;">
-						  	<div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>" data-percent="<%=(taskdo.wansungdo).to_i %>%"></div>
+						  	<% if (taskdo.wansungdo).to_i != 0 %>
+                <div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>" id="mediachart" data-percent="<%=(taskdo.wansungdo).to_i %>%"></div>
+                <% else %>
+                <div class="bar-inner bar-<%=(taskdo.wansungdo).to_i %>"></div>
+                <% end %>
   						</div>
   						<script> horild(); </script>
   					</div>

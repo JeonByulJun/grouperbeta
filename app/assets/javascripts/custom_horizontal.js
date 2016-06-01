@@ -5,19 +5,19 @@ function horild(){
         setTimeout(function() {
         	var b = parseInt(bar.dataset.percent)
         	if (b==10){
+        		b+=11;
+        	}
+        	else if (b==20){
         		b+=9;
         	}
-        	if (b==20){
+        	else if (b==30){
         		b+=7;
         	}
-        	if (b==30){
+        	else if (b==40){
         		b+=5;
         	}
-        	if (b==40){
+        	else if (b==50){
         		b+=3;
-        	}
-        	if (b==50){
-        		b+=1;
         	}
         	bar.style.width = b+"%";
         }, 1);

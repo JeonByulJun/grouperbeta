@@ -79,7 +79,7 @@
 #special_taskname{
     margin-top: 20px;
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 991px) {d
     #special_taskname{
         margin-top: 60px;
     }
