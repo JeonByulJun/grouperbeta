@@ -120,6 +120,8 @@
       <% end %>
     </div>
   </nav>
+
+  <!-- sidebar starts -->
   <% if current_user %>
     <% if current_page?(:controller => '/chat', :action => 'show') or current_page?(:controller => '/resumes', :action => 'index') or current_page?(:controller => '/task', :action => 'show') or current_page?(:controller => '/message', :action => 'show') %>
       <div class="row">
@@ -154,17 +156,53 @@
                 </form>
                 <hr />
               </div>
-              <div id="profile_me" class="col-sm-12">
+            </div>
+              
+            <div class="row">
+              <div class="col-sm-12">
                 <img class="img-circle" alt="profile" src="<%=current_user.image%>" style="width: 35px; height: 35px;">
                 <%=current_user.first_name%>
-                <% temp.each_with_index do |t,idx| %>
-                  <% if t.id != current_user.id %>
-                    <br><img style="width: 35px; height: 35px;" class="img-circle" alt="profile" src="<%=t.image%>">
-                    <%=t.first_name%>
-                  <% end %>
-                <% end %>
               </div>
             </div>
+            
+            <% temp.each_with_index do |t,idx| %>
+              <% if t.id != current_user.id %>
+                <div id="profile_me" class="row">
+                  <div class="col-sm-12">
+                    <img class="img-circle" alt="profile" src="<%=t.image%>" style="width: 35px; height: 35px;">
+                    <%=t.first_name%>
+                  </div>
+                  <div id="profile_me" class="col-sm-12" style="text-align: right;">
+                    <% if (Time.now - t.last_seen) <= 300 %>
+                      접속중
+                    <% elsif (Time.now - t.last_seen) <= 600 %>
+                      5분 전
+                    <% elsif (Time.now - t.last_seen) <= 1800 %>
+                      10분 전
+                    <% elsif (Time.now - t.last_seen) <= 3600 %>
+                      30분 전
+                    <% elsif (Time.now - t.last_seen) <= 10800 %>
+                      1시간 전
+                    <% elsif (Time.now - t.last_seen) <= 21600 %>
+                      3시간 전
+                    <% elsif (Time.now - t.last_seen) <= 43200 %>
+                      6시간 전
+                    <% elsif (Time.now - t.last_seen) <= 86400 %>
+                      12시간 전
+                    <% elsif (Time.now - t.last_seen) <= 172800 %>
+                      1일 전
+                    <% elsif (Time.now - t.last_seen) <= 343600 %>
+                      2일 전
+                    <% elsif (Time.now - t.last_seen) <= 687200 %>
+                      4일 전
+                    <% else %>
+                      <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></h5>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+
           </div>
         </div>
       </div>
@@ -313,12 +351,14 @@
                   <% if t.id != current_user.id %>
                     <div class="row">
                       <div class="col-sm-12">
-                        <div class="col-xs-9">
+                        <div class="col-xs-3">
                           <img class="img-circle" alt="profile" src="<%=t.image%>" style="width: 35px; height: 35px;">
+                        </div>
+                        <div class="col-xs-6">
                           <%=t.first_name%>
                         </div>
                         <div id="profile_me" class="col-xs-3 checkbox">
-                          <%= check_box_tag('user_ids[]', t.id) %>
+                          <%= check_box_tag('user_ids[]', t.id) %><br />
                         </div>
                       </div>
                     </div>

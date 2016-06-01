@@ -5949,3 +5949,1334 @@ Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d0
 
 
 Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 20:32:57 +0900
+DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+To keep the current behavior please set in your config/initializers/devise.rb the following:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  end
+
+If you want to use the new default:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+. (called from <top (required)> at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/config/initializers/devise.rb:3)
+
+
+Started GET "/" for ::1 at 2016-06-02 00:39:54 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TeamController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_seen` = '2016-06-01 15:39:54', `updated_at` = '2016-06-01 15:39:54' WHERE `users`.`id` = 2
+  [1m[36m (6.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mTeam Load (0.5ms)[0m  SELECT  `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2  ORDER BY `teams`.`id` ASC LIMIT 1
+  Rendered team/index.html.erb within layouts/application (1.8ms)
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+Completed 200 OK in 492ms (Views: 362.3ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/" for ::1 at 2016-06-02 00:39:55 +0900
+Processing by TeamController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2  ORDER BY `teams`.`id` ASC LIMIT 1[0m
+  Rendered team/index.html.erb within layouts/application (0.0ms)
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+Completed 200 OK in 91ms (Views: 87.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:39:55 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:40:27 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (22.8ms)
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 129ms (Views: 81.3ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/team/change_etc1" for ::1 at 2016-06-02 00:42:14 +0900
+Processing by TeamController#change_etc1 as HTML
+  Parameters: {"authenticity_token"=>"l+t7eveB1ENN5E3N6/KKlomHx1h5FyvkEmtpOD8gfVsFyUz1k8lrWtSX+POpXTRIZ4B1VqMCiKLUMnuH5oEAjg==", "team"=>"2", "belong"=>"서울대학교 기초전자회로 및 실험 프로젝트 11조"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `teams` SET `belong` = '서울대학교 기초전자회로 및 실험 프로젝트 11조', `updated_at` = '2016-06-01 15:42:14' WHERE `teams`.`id` = 2[0m
+  [1m[35m (12.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/chat/show?team=2
+Completed 302 Found in 17ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:42:14 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (7.8ms)
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 69ms (Views: 61.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:42:14 +0900
+
+
+Started POST "/team/change_etc2" for ::1 at 2016-06-02 00:42:26 +0900
+Processing by TeamController#change_etc2 as HTML
+  Parameters: {"authenticity_token"=>"LyVgqoo9tRXNOqVNj3+bchGVEMXev2mMNumwX2neCbm9B1cl7nUKDFRJEHPN0CWs/5KiywSqysrwsKLgsH90bA==", "team"=>"2", "location"=>"서울, 대한민국"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `teams` SET `location` = '서울, 대한민국', `updated_at` = '2016-06-01 15:42:26' WHERE `teams`.`id` = 2[0m
+  [1m[35m (6.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/chat/show?team=2
+Completed 302 Found in 11ms (ActiveRecord: 7.2ms)
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:42:26 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (5.1ms)
+  [1m[35mTeam Load (0.3ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 65ms (Views: 58.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:42:27 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:57:14 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE `users` SET `last_seen` = '2016-06-01 15:57:14', `updated_at` = '2016-06-01 15:57:14' WHERE `users`.`id` = 2[0m
+  [1m[35m (11.5ms)[0m  COMMIT
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.4ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (8.3ms)
+  [1m[35mTeam Load (0.3ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 105ms (Views: 83.9ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:57:14 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:58:32 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  Rendered chat/show.html.erb within layouts/application (6.6ms)
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC
+  [1m[36mChat Load (0.4ms)[0m  [1mSELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC  [["user_id", 2], ["team_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3
+Completed 200 OK in 74ms (Views: 66.5ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:58:32 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:59:00 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (6.1ms)
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 72ms (Views: 64.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:59:01 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 00:59:33 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  Rendered chat/show.html.erb within layouts/application (6.4ms)
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC
+  [1m[36mChat Load (0.5ms)[0m  [1mSELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC  [["user_id", 2], ["team_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3
+Completed 200 OK in 66ms (Views: 58.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 00:59:33 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 01:00:20 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (6.7ms)
+  [1m[35mTeam Load (0.3ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 93ms (Views: 78.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 01:00:20 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 01:00:27 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.6ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  Rendered chat/show.html.erb within layouts/application (17.5ms)
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC  [["user_id", 2], ["team_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3
+Completed 200 OK in 76ms (Views: 69.0ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 01:00:27 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 01:00:28 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 01:00:55 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  Rendered chat/show.html.erb within layouts/application (6.1ms)
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3[0m
+Completed 200 OK in 66ms (Views: 59.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 01:00:56 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 01:01:38 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  Rendered chat/show.html.erb within layouts/application (6.5ms)
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC  [["user_id", 2], ["team_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3
+Completed 200 OK in 86ms (Views: 78.3ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 01:01:38 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 01:01:39 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-02 01:02:37 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_seen` = '2016-06-01 16:02:37', `updated_at` = '2016-06-01 16:02:37' WHERE `users`.`id` = 2
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  Rendered chat/show.html.erb within layouts/application (5.7ms)
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC  [["user_id", 2], ["team_id", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36mTask Load (0.2ms)[0m  [1mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `tasks_users` ON `users`.`id` = `tasks_users`.`user_id` WHERE `tasks_users`.`task_id` = 3
+Completed 200 OK in 76ms (Views: 64.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/html_erb_task.self-755ef1fae84fc09b5abb4afde1805b43887efb652f945fe5e1b3aa0557ff37e2.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-d5af6491f1c239dd99a7f694ccfab8bac999137cc724f0b9b2490acedc253ba6.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/custom_horizontal.self-970e6cf6d2cbbdb9f832224abe175f6de999f2c40259cbea48c9648422741996.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-02 01:02:38 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-02 01:02:38 +0900
