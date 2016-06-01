@@ -1,0 +1,145 @@
+.sidetab{
+    float: left;
+    width: 70px;
+    height: 800px;
+    position: relative;
+    top: 52px;
+    background-color: #52D5CC;
+    border: 1px solid #4CCFC5;
+    border-right: 1px solid #4CCFC5;
+}
+
+.homebody_chat {
+  top: 52px;
+  /*left: 50px;*/
+  position: relative;
+  width: 607px;
+  padding:15px;
+  height:800px;
+}
+.sidebar{
+    height: 800px;
+    max-width: 355px;
+    position: relative;
+    top: 52px;
+    left: 0px;
+    background-color: #52D5CC;
+    overflow-x: hidden;
+    border: 1px solid #4CCFC5;
+}
+
+@media screen and (min-width: 1069px) {
+  .sidetab{
+    left: 0;
+    float: left;
+    width: 70px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 52px;
+    background-color: #52D5CC;
+    overflow-x: hidden;
+    border: 1px solid #4CCFC5;
+    border-right: 1px solid #4CCFC5;
+  }
+  .homebody_chat {
+    top: 52px;
+    /*left: 50px;*/
+    float: right;
+    position: relative;
+    width: 61%;
+    min-width: 607px;
+    z-index: 1;
+    padding:15px;
+  }
+  .sidebar{
+    height: 100%;
+    width: 35%;
+    max-width: 355px;
+    position: fixed;
+    top: 52px;
+    left: 70px;
+    background-color: #52D5CC;
+    overflow-x: hidden;
+    border: 1px solid #4CCFC5;
+  }
+}
+
+#chat-icon-box{
+  position: absolute;
+  top: 50%;
+  margin-top: -90px;
+  left: 50%;
+  margin-left: -20px;
+}
+#chat-icon-member{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: white;
+}
+#chat-icon-chatlist{
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  color: white;
+}
+#chat_top {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#chat_top2 {
+  background-color: white;
+  padding-top: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#img_setting {
+  width: 70px;
+  height: 70px;
+  float: left;
+  margin-right: 8px;
+  padding: 10px;
+}
+#main_name{
+  padding-top: 8px;
+}
+#main_status{
+  padding-top: 8px;
+}
+
+/** -- located on html_erb_task.css **/
+/*.bar2 {
+  background-color: #F3F3F3;
+  width: 90%;
+  height: 40px;
+}
+.bar-innerday {
+  width: 0%;
+  height: 30px;
+  top: 5px;
+  position: relative;
+  transition: width 1250ms linear;
+}
+.bar-innerday:after {
+  position: absolute;
+  right: 5.5%;
+  color: #fff;
+  content: attr(data-display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+}*/
+.bar2-innertask_chat:after{
+  position: absolute;
+  right: 52px;
+  color: #0C0C0C;
+  content: attr(data-task);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+}

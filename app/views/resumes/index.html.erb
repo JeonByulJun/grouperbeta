@@ -1,0 +1,58 @@
+<h3>클라우드 <small>파일명을 클릭하면 다운로드됩니다.</small></h3>
+<button type="button" class="btn btn-new btn-xs" data-toggle="modal" data-target="#myModal" style="margin-bottom: 5px;">
+  전체 공개 파일 업로드
+</button>
+<% @resumes.each do |resume| %>
+  <% if resume.attachment.file %>
+    <div class="well well-sm" style="margin-bottom: 3px;">
+      <div class="row">
+        <div class="col-sm-10">
+          <%= link_to resume.attachment.file.filename, resume.attachment_url, :target => "_blank" %>
+        </div>
+        <div class="col-sm-2">
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<h3><small>화이트 보드별 파일 목록</small></h3>
+<% @chats.each do |chat| %>
+  <% chat.filemessages.each do |filemessage| %>
+    <% if filemessage.filemessageupload.file %>
+      <div class="well well-sm" style="margin-bottom: 3px;">
+        <div class="row">
+          <div class="col-sm-9">
+            <%= link_to filemessage.filemessageupload.file.filename, filemessage.filemessageupload_url, :target => "_blank" %>
+          </div>
+          <div class="col-sm-3">
+            in <%=chat.title%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">파일 업로드</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :resume,:url => {:action => "create"}, html: {id: "upload", multipart: true } do |f| %>
+          <%= f.file_field :attachment, required: true%>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :team_id, :value => @team.id %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-nil" data-dismiss="modal">닫기</button>
+        <button type="button" onclick="$('#upload').submit();" class="btn btn-new">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

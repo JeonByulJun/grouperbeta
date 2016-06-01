@@ -1,0 +1,33 @@
+<style>
+    body
+    {
+        background-image:url('/bgpic.jpg');
+        background-repeat:no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<div style="text-align:center">
+    <div class="row">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>팀원 추가</h3>
+          <%= @ment %>
+          <br>
+          <br>
+          <form action="/team/addmember" method="get">
+            
+            <input type="hidden" name="team" value=<%=@team.id%>>
+            
+            <button class="btn btn-link" href="#" onclick="this.parentNode.submit()">팀원 더 초대하기</button>
+            <a class="btn btn-link" href="<%="/chat/show?team="+@team.id.to_s%>">그만 추가하기</a>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

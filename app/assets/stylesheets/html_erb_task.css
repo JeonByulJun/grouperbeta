@@ -1,0 +1,164 @@
+#mediachart{
+    height: 0px;
+}
+#mediaborder{
+    border-bottom: 1px solid #ccc;
+}
+@media screen and (min-width: 1069px) {
+  #mediachart{
+    height:30px;
+  }
+  #mediaborder{
+    border-bottom: 0px solid #ccc;
+  }
+}
+
+#special_down{
+    margin-left: 100px;
+}
+@media screen and (min-width: 767px) {
+  #special_down{
+    margin-left: 0px;
+  }
+}
+
+#profile_workmap{
+  padding-left: 20px;
+  position: relative;
+}
+.homebody_task{
+    position: relative;
+    margin-top: 20px;
+}
+/*** Sidebar ***/
+
+.sidebar_task{
+    height: 100%;
+    width: auto;
+    min-width: 206px;
+    max-width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 51px;
+    right: 0;
+    background-color: #50D4C8;
+    overflow-x: hidden;
+    margin-left: 3px;
+}
+
+#task_pararell{
+    margin-top: 50px;
+}
+@media screen and (min-width: 768px) {
+    #task_pararell{
+        margin-top:0px;
+    }
+}
+
+#task_taskdue{
+    margin-top: 8px;
+}
+#task_name{
+    padding-top: 3px;
+}
+#sidebar_name{
+    padding-top: 8px;
+    color: white;
+}
+#sidebar_status{
+    padding-top: 8px;
+    color: white;
+}
+
+/*** Individual Modal ***/
+
+
+#bar_disappear{
+    height: 30px;
+}
+#special_taskname{
+    margin-top: 20px;
+}
+@media screen and (max-width: 991px) {
+    #bar_disappear{
+        height:0px;
+    }
+    #special_taskname{
+        margin-top: 60px;
+    }
+}
+.bar2 {
+    background-color: #F3F3F3; /*gray*/
+    width: 90%;
+    height: 40px;
+}
+.bar2-innertask:after{
+    position: absolute;
+    right: 80px;
+    color: #0C0C0C;
+    content: attr(data-task);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+.bar-innerday {
+    background-color: #00B0F0; /*slight deep blue*/
+    width: 0%;
+    /*height: 100%;*/
+    height: 30px;
+    top: 5px;
+    position: relative;
+    transition: width 1250ms linear;
+    border-radius: 5px;
+}
+
+.bar-innerday:after {
+    position: absolute;
+    right: 5.5%;
+    color: #fff; /*white*/
+    content: attr(data-display);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+/*** --  ***/
+.bar {
+    background-color: #f2f2f1;
+    width: 80%;
+    height: 30px;
+    margin: 30px;
+}
+.bar-inner {
+    background-color: #2ecc71;
+    width: 0%;
+    height: 100%;
+    position: relative;
+    transition: width 1250ms linear;
+}
+
+.bar-inner:after {
+    position: absolute;
+    right: 5.5%;
+    content: attr(data-percent);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+
+/*** Completion Circle Graph ***/
+
+/*Centering the gauge*/
+.circlegraph{
+    display: block;
+    width: 300px;
+    margin: 100px auto;
+}
+
+/*custiom font for numgers*/
+@font-face{
+    font-family: "bebas";
+    src: url("http://thecodeplayer.com/uploads/fonts/BebasNeue.otf");
+}

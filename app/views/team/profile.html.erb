@@ -1,0 +1,95 @@
+<style>
+body
+{
+background-image:url('/bgpic.jpg');
+background-repeat:no-repeat;
+background-size: cover;
+}
+</style>
+
+<div style="text-align:center">
+  <div class="row">
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form id="profileupload" class="form-inline" action="/team/profileupdate" method="post" enctype="multipart/form-data">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <input id="imageupload" type="file" name="image" style="visibility:hidden;position:absolute;top:0;left:0;">
+            <label for="imageupload" style="cursor: pointer;"><img class="img-circle" src="<%= current_user.image.url %>" alt="<%=current_user.first_name%>" onmouseover="editImg(this)" onmouseout="normalImg(this)" width="100px" height="100px"></label>
+          </form>
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <a data-toggle="collapse" href="#name" aria-expanded="false" aria-controls="name" style="text-decoration: none;">
+                <h3><%=current_user.first_name%></h3>
+              </a>
+            </div>
+          </div>
+          <div class="collapse" id="name">
+            <form class="form-inline" action="/team/profileupdate" method="post" enctype="multipart/form-data">
+              <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+              <input class="form-control" type="text" name="name" placeholder="새로운 이름 입력 후 엔터" required>
+            </form>
+          </div>
+          *수정하려는 부분을 클릭하세요
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="hidden" style="visibility:hidden;position:absolute;top:0;left:0;" class="btn btn-primary btn-lg" id="imshow" data-toggle="modal" data-target="#myModal"></button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" style="text-align: center;">
+        <img id="blah" src="#" alt="your image" style="padding: 10px; max-width: 50%; height: auto;"/>
+      </div>
+      <div class="modal-footer">
+
+        <button id="closemodal" type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <button id="imagesubmit" type="button" onclick="$('#profileupload').submit();$('#closemodal').click(); this.disabled=true;" class="btn btn-primary">프로필 바꾸기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+    $("#imageupload").on('click',function(){
+      this.value=null;
+    });
+  })
+  $(function(){
+    $("#imageupload").on('change',function(){
+      $("#imagesubmit").prop('disabled', false);
+      document.getElementById('imshow').click();
+      readURL(this);
+    });
+  });
+  
+  function readURL(input){
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+
+      reader.onload = function(e){
+        $('#blah').attr('src',e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
+<script>
+function editImg(x) {
+    x.style.opacity = 0.64;
+}
+
+function normalImg(x) {
+    x.style.opacity = 1;
+}
+</script>

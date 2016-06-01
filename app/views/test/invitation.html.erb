@@ -1,0 +1,27 @@
+<style>
+    body
+    {
+        background-image:url('/bgpic.jpg');
+        background-repeat:no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<div style="text-align:center">
+    <div class="row">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="panel panel-default">
+        <div class="panel-body">
+          <% if current_user==nil %>
+            <h1><%= @team.teamname %> 팀으로 초대되셨습니다</h1>
+            <p>이제 한 단계만 남았습니다. 가입 후 팀에 들어가 보세요!</p>
+            <a class="btn btn-link" href="/users/sign_up" role="button">가입하기</a>
+          <% else %>
+          <% end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+
+$(document).ready(function(){
+  $("#fileupload").on('click',function(){
+    this.value=null;
+  });
+})
+$(function(){
+  $("#fileupload").on('change',function(){
+    $("#filefileupload").submit();
+  });
+});
+
+$("#imageupload").on('click',function(){
+  this.value=null;
+});
+
+$(function(){
+  $("#imageupload").on('change',function(){
+    $("#imagesubmit").prop('disabled', false);
+
+    document.getElementById('imshow').click();
+    readURL(this);
+  });
+});

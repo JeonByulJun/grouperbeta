@@ -1,0 +1,169 @@
+<head>
+	<h1> test page>
+	<h2><%=@team.teamname%></h2>
+	<%= link_to "INDIVIDUAL", action: 'show', controller: 'task', team: @team.id%>
+</head>
+
+
+
+
+<body data-no-turbolink="true">
+	 <!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist" style="padding-left: 70px;">
+		<li role="presentation" class="active"><a href="#tasklist" aria-controls="home" role="tab" data-toggle="tab">Tasklist</a></li>
+		<li role="presentation"><a href="#taskindiv" aria-controls="home" role="tab" data-toggle="tab">Tasks</a></li>
+		<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+	</ul>
+	
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="tasklist">
+			<style>
+				.bar2 {
+				    background-color: #F3F3F3; /*gray*/
+				    width: 70%;
+				    /*height: 30px;*/
+				    height: 40px;
+				    /*border-left-style: dotted;
+				    border-left-color: black;
+				    border-left-width: thin;
+				    border-top-style: dotted;
+				    border-top-color: black;
+				    border-top-width: thin;*/
+				}
+				.bar2-innertask:after{
+				    position: absolute;
+				    right: 20%;
+				    color: #0C0C0C;
+				    content: attr(data-task);
+				    font-size: 18px;
+				    font-weight: 700;
+				    line-height: 30px;
+				}
+				.bar-innerday {
+				    /*background-color: #00B0F0;*/ /*slight deep blue*/
+				    width: 0%;
+				    /*height: 100%;*/
+				    height: 30px;
+				    top: 5px;
+				    position: relative;
+				    transition: width 1250ms linear;
+				}
+
+				.bar-innerday:after {
+				    position: absolute;
+				    right: 5.5%;
+				    color: #fff; /*white*/
+				    content: attr(data-display);
+				    font-size: 18px;
+				    font-weight: 700;
+				    line-height: 30px;
+				}
+			</style>
+				<!-- gantt head -->
+				<div class="bar2">
+					<% for j in 0..11 %>
+						<% a = Date.today + j %>
+						<div class="col-md-1"><%=a.strftime("%m/%d") %></div>
+					<% end %>
+				</div>
+			<% @teamtask.each_with_index do |b,i| %>
+				<% if b.duedate == nil %>
+					<% b.duedate = Date.today %>
+				<% end %>
+				<% a = (b.duedate - (Date.today)).to_i %>
+				<% if a > 0 %>
+					<div class="bar2">
+						<div class="bar2-innertask" data-task ="<%=b.taskname%>"></div>
+				  		<div id="<%=i%>th-gantt" class="bar-innerday bar-<%=a%>" data-date="<%=a%>" data-display ="D -<%=a%>" style="background-color: #00B0F0;"></div>
+					</div>
+				<% end %>
+			<% end %>
+			<script>
+			    function ganttfn(){
+			        (function(document) {
+			          var _bars = [].slice.call(document.querySelectorAll('.bar-innerday'));
+			          _bars.map(function(bar, index) {
+			            setTimeout(function() {
+			              var b = bar.dataset.date * 100/12;
+			              if(b>=99){
+			              	b=99;
+			              }
+			              b+="%";
+			              bar.style.width = b;
+			            }, 1);
+			          });
+			        })(document)
+			    }
+			    ganttfn();
+	  		</script>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="taskindiv">
+			<!-- gantt head -->
+			<div class="bar2">
+				<%for i in 0..11 %>
+					<% a = Date.today + i %>
+					<div class="col-md-1"><%=a.strftime("%m/%d") %></div>
+				<% end %>
+			</div>
+			<% temp = [] %>
+			<% temp += @team.users %>
+			<% temp.each_with_index do |t,idx| %>
+				<% ro = t.id %>
+				<% @taskindiv = t.tasks.where(:team_id => params[:team]).order(duedate: :asc) %>
+				<% if @taskindiv.count != 0 %>
+					<li><%=t.first_name%><%=t.last_name%></li>
+					<% @taskindiv.each_with_index do |b,i| %>
+						<% if b.duedate == nil %>
+							<% b.duedate = Date.today %>
+						<% end %>
+						<% a = (b.duedate - (Date.today)).to_i %>
+						<% if a > 0 %>
+							
+							<div class="bar2">
+								<div class="bar2-innertask" data-task ="<%=b.taskname%>"></div>
+						  		<div id="<%=i%>th-gantt-each-<%=idx%>" class="bar-innerday bar-<%=a%>" data-date="<%=a%>" data-display ="D -<%=a%>" style="background-color: #00B0F0;"></div>
+							</div>
+							<!-- random color js, has problem -->
+							<script>
+								function ran_col(){
+									var color = "#";
+									var letters = {"4eb72a","00B0F0"};
+									color += letters[Math.floor(Math.random() * letters.length)];
+									document.getelementById('<%=i%>th-gantt-each-<%=idx%>').style.backgroundColor = color;
+								}
+								ran_col();
+							</script>
+						<% end %>
+				  	<% end %>
+				<% end %>
+			<% end %>
+			
+			<script>
+			    function ganttfn(){
+			        (function(document) {
+			          var _bars = [].slice.call(document.querySelectorAll('.bar-innerday'));
+			          _bars.map(function(bar, index) {
+			            setTimeout(function() {
+			              var b = bar.dataset.date * 100/12;
+			              if(b>=99){
+			              	b=99;
+			              }
+			              b+="%";
+			              bar.style.width = b;
+			            }, 1);
+			          });
+			        })(document)
+			    }
+			    ganttfn();
+		  	</script>
+		</div>
+		<div role="tabpanel" class="tab-pane" id="profile"></div>
+	</div>
+	
+	<% @teamtask.each do |t| %>
+		<li> <%=t.taskname%> <%=t.duedate%></li>
+	<% end %>
+	<br>
+	
+</body>

@@ -1,0 +1,232 @@
+<div style="text-align:center">
+  <h3 style="margin-top:0px;"><%=@chat.title %></h3>
+</div>
+<div style="text-align:center">
+  <div class="row">
+    <div class="col-md-12">
+      <% @chat.users.each do |inchat| %>
+        <img class="img-circle" alt="profile" src="<%=inchat.image%>" data-toggle="tooltip" data-placement="bottom" title="<%=inchat.first_name%>" style="width: 25px; height: 25px;">
+      <% end %>
+      <span data-toggle="tooltip" data-placement="bottom" title="멤버 초대" ><button class="btn btn-new btn-xs" data-toggle="modal" data-target="#addmember2" type="button" type="button" ><span class="glyphicon glyphicon-plus"></span></button></span>
+
+
+
+
+
+
+      <div id="addmember2" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              멤버 초대
+            </div>
+
+            <form action="/chat/addmember" method="post">
+              <div class="modal-body row">
+                <input type="hidden" name="chat" value="<%=@chat.id%>">
+                <input type="hidden" name="team" value="<%=@team.id%>">
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+                <% @team.users.each do |user| %>
+                  <% if !@chat.users.include?(user)%>
+                    <div class="col-sm-10">
+                      <img class="img-circle" alt="profile" src="<%=user.image%>" style="width: 35px; height: 35px;">
+                      <%=user.first_name%>
+                    </div>
+                    <div id="profile_me" class="col-sm-2 checkbox">
+                      <%= check_box_tag('user_ids[]', user.id) %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" value="send" class="btn btn-new btn-sm" aria-haspopup="true" aria-expanded="false" style="width: 100%">
+                  초대
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div style="text-align:center">채팅창</div>
+    <div style="overflow:scroll; overflow-x:hidden; word-wrap:break-word; word-break:break-all; width:auto; height:400px;" id="chatbox">
+      <div class="imagemessages"></div>
+      <% @chat.messages.each do |message| %>
+
+        <%= sync partial: "newmessages", resource: message, scope: @chat %>
+
+      <% end %>
+      <div id="unloadmessages">
+
+      </div>
+      <%= sync_new partial: 'newmessages', resource: Message.new, scope: @chat%>
+    </div>
+
+
+      <%= form_for(:message, :url => {:controller => 'message', :action => 'create'}, :remote => true, :html => {:id => "messageform"}) do |f| %>
+        <%= f.hidden_field :chat_id, :value => @chat.id %>
+        <div class="form-group has-success has-feedback">
+          <div class="dropup">
+            <div class="input-group">
+              <span class="input-group-addon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                +
+              </span>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a><label for="fileupload" style="cursor: pointer;"><span class="glyphicon glyphicon-file"></span> 파일업로드</label></a></li>
+                <li><a><label for="imageupload" style="cursor: pointer;"><span class="glyphicon glyphicon-picture"></span> 사진업로드</label></a></li>
+              </ul>
+              <input type="text" name="message[content]" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" autofocus required autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+      <%end%>
+
+
+
+
+    <form id="imagefileupload" class="form-inline" action="/imageup" method="post" enctype="multipart/form-data" data-remote="true">
+      <input type="hidden" name="chat_id" value=<%= @chat.id %>>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+      <input id="imageupload" type="file" name="image_file" style="visibility:hidden;position:absolute;top:0;left:0;">
+    </form>
+
+    <form id="filefileupload" class="form-inline" action="/fileup" method="post" enctype="multipart/form-data" data-remote="true">
+      <input type="hidden" name="chat_id" value=<%= @chat.id %>>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+      <input id="fileupload" type="file" name="file_file" style="visibility:hidden;position:absolute;top:0;left:0;">
+    </form>
+
+    <button type="hidden" style="visibility:hidden;position:absolute;top:0;left:0;" class="btn btn-primary btn-lg" id="imshow" data-toggle="modal" data-target="#myModal"></button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <img id="blah" src="#" alt="your image" style="padding: 10px; max-width: 100%; height: auto;"/>
+          </div>
+          <div class="modal-footer">
+
+            <button id="closemodal" type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            <button id="imagesubmit" type="button" onclick="$('#imagefileupload').submit();$('#closemodal').click(); this.disabled=true;" class="btn btn-primary">이미지 올리기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#fileupload").on('click',function(){
+          this.value=null;
+        });
+      })
+      $(function(){
+        $("#fileupload").on('change',function(){
+          $("#filefileupload").submit();
+        });
+      });
+      $(document).ready(function(){
+        $("#imageupload").on('click',function(){
+          this.value=null;
+        });
+      })
+      $(function(){
+        $("#imageupload").on('change',function(){
+          $("#imagesubmit").prop('disabled', false);
+          document.getElementById('imshow').click();
+          readURL(this);
+        });
+      });
+      function readURL(input){
+        if(input.files && input.files[0]){
+          var reader = new FileReader();
+          reader.onload = function(e){
+            $('#blah').attr('src',e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        $("#inputGroupSuccess1").keydown(function(event){
+            if(event.keyCode == 13){
+              $("#messageform").submit();
+              $('#inputGroupSuccess1').val('');
+              return false;
+            }
+        });
+      });
+    </script>
+  </div>
+  <div class="col-sm-6">
+    <div style="text-align:center">
+      화이트 보드
+      <%= sync partial: "whiteboardedit", resource: @whiteboard, scope: @chat, refetch: true %>
+
+      <nav>
+        <ul class="pagination pagination-sm">
+          <li><%=sync partial: 'whiteboardcondition', resource: @whiteboard, scope: @chat, refetch: true%></li>
+          <form action="/whiteboard/update2" method="post" id="whiteboardchangeform" data-remote=true>
+            <input type="hidden" name="whiteboardid" value=<%=@whiteboard.id%>>
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+          </form>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<% if @chat.messages.count != 0 and @message%>
+  <form action="/message/updateall" method="put" data-remote=true id="messagelookall">
+    <input id="checkmessage" type="hidden" name="message_id" value=<%=@chat.messages.last.id%>>
+    <input type="hidden" name="chat_id" value=<%=@chat.id%>>
+    <input type="hidden" name="lastread" value="<%=@message.id%>">
+<input id="checkpoint" type="hidden" name="isupdate" value="false">
+  </form>
+<% end %>
+
+
+<form action="/message/update" method="put" data-remote=true id="messagelook" class="newmessages">
+  <input id="messagelookid" type="hidden" name="message_id" value=<%=@chat.messages.count-1%>>
+  <input type="hidden" name="chat_id" value=<%=@chat.id%>>
+  <input type="hidden" name="user_id" value=<%=current_user.id%>>
+</form>
+
+<script>
+  $(document).ready(function(){
+    <%if @message %>
+        $('#chatbox').animate({ scrollTop: $('#message<%=@message.id%>').offset().top -200});
+        $("#message<%=@message.id%>").append("-----------여기까지 읽었습니다-----------");
+        $('.imagemessages:last').load(function(){
+          $('#chatbox').animate({ scrollTop: $('#message<%=@message.id%>').offset().top -200});
+        });
+    <% end %>
+    $("#whiteboardsend").click(function(){
+      $("#whiteboardform").submit();
+    });
+    $("#whiteboardchange").click(function(){
+      $("#whiteboardchangeform").submit();
+    });
+  });
+  $(document).ready(function(){
+    $('#messagelookall').submit();
+  });
+
+
+</script>

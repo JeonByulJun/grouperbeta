@@ -1,0 +1,160 @@
+<div class="row">
+  <aside style="padding-left: 12px; padding-top: 12px;">
+  <img class="img-rounded" alt="profile" src="/favicon.ico" width="100px" height="100px" style="float: left; margin-right: 12px; margin-top: 20px; margin-bottom: 20px;">
+  </aside>
+  <h2> <%=@team.teamname%></h2>
+
+  <h4 data-toggle="collapse" aria-expanded="false" aria-controls="name" style="font-size: 15px; text-decoration: none;"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <%=@team.belong%>
+  <button class="btn btn-bel btn-xs" type="button" data-toggle="collapse" data-placement="bottom" data-target="#belong" aria-expanded="false" aria-controls="belong"><span class="glyphicon glyphicon-pencil"></span></button></h4>
+
+  <div class="collapse" id="belong">
+    <form class="form-inline" action="/team/change_etc1" method="post" enctype="multipart/form-data">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <%= hidden_field_tag "team", @team.id %>
+      <input class="form-control" type="text" name="belong" placeholder="팀 소속 입력 후 엔터" required>
+    </form>
+  </div>
+
+  <h5 data-toggle="collapse" aria-expanded="false" aria-controls="name" style="font-size: 13px; color: gray;"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%=@team.location%>
+  <button class="btn btn-loc btn-xs" type="button" data-toggle="collapse" data-placement="bottom" data-target="#location" aria-expanded="false" aria-controls="location"><span class="glyphicon glyphicon-pencil"></span></button></h5>
+  
+  <div class="collapse" id="location" style="margin-left: 125px;">
+    <form class="form-inline" action="/team/change_etc2" method="post" enctype="multipart/form-data">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+      <%= hidden_field_tag "team", @team.id %>
+      <input class="form-control" type="text" name="location" placeholder="지역 입력 후 엔터" required>
+    </form>
+  </div>
+</div>
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist" style="padding-left: 70px; margin-top: 20px;">
+  <!--<li role="presentation" class="active"><a href="#taskcalendar" aria-controls="home" role="tab" data-toggle="tab">Schedule</a></li>-->
+  <li role="presentation" class="active"><a href="#tasklist" aria-controls="home" role="tab" data-toggle="tab">나의 할일</a></li>
+  <li role="presentation"><a href="#taskindiv" aria-controls="home" role="tab" data-toggle="tab">팀 상황</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <!--<div role="tabpanel" class="tab-pane active" id="taskcalendar">
+    <div id="cal">
+      <div class="header">
+        <span class="left button" id="prev"> &lang; </span>
+        <span class="left hook"></span>
+        <span class="month-year" id="label"> April 2016 </span>
+        <span class="right hook"></span>
+        <span class="right button" id="next"> &rang; </span>
+      </div>
+      <table id="days">
+        <td>SUN</td><td>MON</td><td>TUE</td><td>WED</td><td>THU</td><td>FRI</td><td>SAT</td>
+      </table>
+      <div id="cal-frame">
+        <table class="curr">
+            <tbody>
+                <tr><td class="nil"></td><td class="nil"></td><td class="nil"></td><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td></tr>
+                <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td class="today">8</td><td>9</td></tr>
+                <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+                <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+                <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      var cal = CALENDAR();
+
+      cal.init();
+    </script>
+  </div>-->
+
+  <div role="tabpanel" class="tab-pane active" id="tasklist" style="background-color: #F3F3F3;">
+    <!-- gantt head -->
+    <div class="row" style="padding-left: 15px; border-radius: 5px;">
+      <div class="bar2">
+        <%for i in 0..10 %>
+          <% a = Date.today + i %>
+          <div class="col-xs-1"><%=a.strftime("%m/%d") %></div>
+        <% end %>
+      </div>
+    </div>
+    
+    <% current_user.tasks.where(:team_id => @team.id).order(duedate: :asc).each_with_index do |b,i| %>
+      <% if b.wansungdo < 100 %>
+        <% if b.duedate == nil %>
+        <% b.duedate = Date.today %>
+        <% end %>
+        <% a = (b.duedate - (Date.today)).to_i %>
+        <% if a >= 0 %>
+        <div class="row" style="overflow:hidden;">
+          <div class="col-xs-10">
+            <div class="bar2">
+            <div class="bar2-innertask_chat" data-task =""></div>
+              <div id="<%=i%>th-gantt" class="bar-innerday bar-<%=a%>" data-date="<%=a%>" data-display ="D -<%=a%>" style="background-color: #00B0F0; overflow:hidden;"></div>
+            </div>
+          </div>
+          <div class="col-xs-2" style="word-wrap:break-word; word-break:break-all; text-align: right;">
+            <h4 style="padding-right: 10px;"> <%=b.taskname %> </h4>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    <% end %>
+    <script>
+      ganttfn();
+    </script>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="taskindiv" style="background-color: #F3F3F3;">
+    <!-- gantt head -->
+    <div class="row" style="padding-left: 15px;">
+      <div class="bar2">
+        <%for i in 0..10 %>
+          <% a = Date.today + i %>
+          <div class="col-xs-1"><%=a.strftime("%m/%d") %></div>
+        <% end %>
+      </div>
+    </div>
+    <% temp = [] %>
+    <% temp += @team.users %>
+    <% temp.each_with_index do |t,idx| %>
+      <% ro = t.id %>
+      <% @taskindiv_unordered = t.tasks.where(:team_id => params[:team]) %>
+      <% @taskindiv = @taskindiv_unordered.order(duedate: :asc) %>
+      <% if @taskindiv.count != 0 %>
+        <div class="row">
+          <div id="profile_on_tasklist<%=idx%>" class="col-sm-12">
+            <aside >
+              <img id="img_setting" class="img-circle" alt="profile" src="<%=t.image%>">
+            </aside>
+            <h5 style="padding-top: 15px;"><%=t.first_name%></h5>
+          </div>
+        </div>
+        <% @taskindiv.each_with_index do |b,i| %>
+          <% if b.wansungdo < 100 %>
+            <% if b.duedate == nil %>
+              <% b.duedate = Date.today %>
+            <% end %>
+            <% a = (b.duedate - (Date.today)).to_i %>
+            <% if a >= 0 %>
+            <div class="row" style="overflow:hidden;">
+              <div class="col-xs-10">
+                <div class="bar2">
+                <div class="bar2-innertask_chat" data-task =""></div>
+                  <div id="<%=i%>th-gantt" class="bar-innerday bar-<%=a%>" data-date="<%=a%>" data-display ="D -<%=a%>" style="background-color: #00B0F0; overflow:hidden;"></div>
+                </div>
+              </div>
+              <div class="col-xs-2" style="word-wrap:break-word; word-break:break-all;">
+                <h4 style="padding-right: 10px;"> <%=b.taskname %> </h4>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <script>
+      ganttfn();
+    </script>
+  </div>
+</div>

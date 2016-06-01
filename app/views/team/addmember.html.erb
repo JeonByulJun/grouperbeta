@@ -1,0 +1,36 @@
+<style>
+    body
+    {
+        background-image:url('/bgpic.jpg');
+        background-repeat:no-repeat;
+        background-size: cover;
+    }
+</style>
+
+
+<div style="text-align:center;">
+    <div class="row">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="col-sm-4 col-sm-offset-4">
+        <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>팀원 추가</h3>
+          <p1>추가할 팀원의 이메일을 입력하고 초대해보세요!!</p1>
+          <br><br>
+          <form class="form-inline" action="/team/adding" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+            <div class="form-group"></div>
+            <input type="hidden" name="team" value="<%=@team.id%>">
+            <input class="form-control" type="email" name="user_email" placeholder="이메일 입력" required>
+            <button type="submit" class="btn btn-default">팀원 추가</button>
+            <br>
+            <br>
+            <div style="text-align: right;">
+              <a href="<%="/chat/show?team="+@team.id.to_s%>">그만 추가하기</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

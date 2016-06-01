@@ -1,0 +1,557 @@
+DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+To keep the current behavior please set in your config/initializers/devise.rb the following:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  end
+
+If you want to use the new default:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+. (called from <top (required)> at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/config/initializers/devise.rb:3)
+DEPRECATION WARNING: [Devise] config.email_regexp will have a new default on Devise 4.1
+To keep the current behavior please set in your config/initializers/devise.rb the following:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@([^@\s]+\.)+[^@\W]+\z/
+  end
+
+If you want to use the new default:
+
+  Devise.setup do |config|
+    config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  end
+. (called from <top (required)> at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/config/initializers/devise.rb:3)
+
+
+Started GET "/" for ::1 at 2016-06-01 19:15:33 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by TeamController#index as HTML
+Completed 401 Unauthorized in 18ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-06-01 19:15:33 +0900
+Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_up) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:11)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_in) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_in) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:12)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(account_update) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:account_update) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:13)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 1701ms (Views: 1689.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-06-01 19:15:34 +0900
+Processing by TeamController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-06-01 19:15:34 +0900
+Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_up) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:11)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_in) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_in) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:12)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(account_update) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:account_update) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:13)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 57ms (Views: 55.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:15:35 +0900
+
+
+Started GET "/users/sign_in" for ::1 at 2016-06-01 19:17:45 +0900
+Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_up) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:11)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_in) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_in) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:12)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(account_update) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:account_update) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:13)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 97ms (Views: 95.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-customized_button.self-757d230f2788f5773ae8d0232f6f501d84c2b940cf183f5dc7e652f74527d235.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/bootstrap-datepicker-custom.self-85fde5d2c7852749d17d1751fcf29a9097bc31769a7e74dca32667f5df69d4ce.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-6baa913c31532b496180eaf6838241f29bf0e63dc813924ad96cf8e84d4de5a0.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/chat.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/custom_calendar.self-5cb9733ab37e3f22e949115304f60fd12077374bf5becb7824b6ff3a51f23a7f.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/html_erb_chat.self-d99c93ab869c950a87bf0f47daa70fa43f82a12ec1124f45314f6994c2cb40a9.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/html_erb_task.self-88f10d0aeeba7dcf7fbbdcadcb32d09bb8e6877c87c3af946a0cb170a41941fc.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/message.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/resumes.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/task.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/team.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/test.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/whiteboard.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/application.self-f4d83c4fafd87f5b1c0df7e0f020b8df95f7c54c41043871acad80ac9107b1cc.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9335a464797c89676ed4b683a42a79838ce3ed5309aebe28771b2b0a96d1a072.css?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/turbolinks.self-3ad9a189e282f93d4e08b6b4af94c9dd70e5aaa8557b7704050a875ed67faf50.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/moment.self-6ab65bcb51ba1c538f5900a720453c5aff4c483661520b52008568b330d5dd03.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/jquery.remotipart.self-337cc0be48c9612bd2dff6eebbc740a488456bba7c0d29da6b63834752826ecd.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/Chart.self-08d8527bd20d06e3b0fffbe823c082d3d090c0ca9d9c95aefc6e20eba0d5edb9.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/bootstrap-slider.self-1fdc08789fe699bdefef28585eb411a3ff352c40f804d9b697aeb3bc1015d93a.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/chat.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/custom_calendar.self-3837b0cfa4bdc1056241db469bb45aad6e932235470c546da805b1b79fcb71d6.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/custom_circle.self-d58bd5ca318b9d8ef66d8063d36ae80d11e234c491ebc716ddf6b6696a153546.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/custom_ganttfn.self-57d696f53ddc4a178c74019920c817abfb00926b25b570b2bb65908545753d34.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/custom_horizontal.self-37f8b67f1a18bab9d9dfc5ac567dc1d8b5d37067887506b1597a79371d171a28.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/custom_tasklist_index.self-cf84d8a71831d4d9e64f82b9e493672e04a4e6f464704e7673da894dd3f83079.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/message.self-65adf5418bbf16c91f94434347ee7af96af89eb329d10fdeaf4f7b8042d3cc53.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/resumes.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/sync.self-3a4410ac1106d3611a5db6914e86a7d5075a927eda053b7559a91cce4cd44875.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/task.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/team.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/test.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/whiteboard.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/application.self-44dc72337fbefc4f8c73fc8781b922cf9e4f99f8d068e6563c3820851d9390f6.js?body=1" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:17:46 +0900
+
+
+Started POST "/test/regmail" for ::1 at 2016-06-01 19:17:59 +0900
+Processing by TestController#regmail as HTML
+  Parameters: {"authenticity_token"=>"FWFejuI0uP+HgT5w7pSVRYEIB89PnV7VJnSqitPab5qHQ2kBhnwH5h7yi06sOyubbw+1wZWI/ZPgLbg1CnsSTw==", "email"=>"rlagksquf30@gmail.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'rlagksquf30@gmail.com'
+  Rendered notice_mailer/regmail.html.erb within layouts/mailer (0.4ms)
+
+NoticeMailer#regmail: processed outbound mail in 141.6ms
+
+Sent mail to rlagksquf30@gmail.com (3224.9ms)
+Date: Wed, 01 Jun 2016 19:17:59 +0900
+From: supporter@grouper.com
+To: rlagksquf30@gmail.com
+Message-ID: <574eb6575cd0c_94663ffd40c3fa1479021@Han-Byuls-MacBook-Pro.local.mail>
+Subject: =?UTF-8?Q?=EA=B7=B8=EB=A3=A8=ED=8D=BC=EC=97=90=EC=84=9C?=
+ =?UTF-8?Q?_=EC=B4=88=EB=8C=80=EC=9E=A5=EC=9D=B4?=
+ =?UTF-8?Q?_=EC=99=94=EC=8A=B5=EB=8B=88=EB=8B=A4.?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CiAgPGJvZHk+CiAgICA8cD7slYjrhZXtlZjshLjsmpQhIOq3uOuj
+qO2NvOyeheuLiOuLpC48L3A+CjxwPuyVhOuemCDrp4Htgazrpbwg7YG066at
+7ZWY7Iuc66m0IOqwgOyeheydtCDsmYTro4zrkKnri4jri6QhITwvcD4KCjxz
+dHJvbmc+66eM7JW9IO2YhOyerCDqt7jro6jtjbzsl5Ag66Gc6re47J24IOuQ
+mOyWtOyeiOuLpOuptCDroZzqt7jslYTsm4Mg7ZW07KO87IS47JqULjwvc3Ry
+b25nPgo8YSBocmVmPSJodHRwOi8vZ3JvdXBlcmJldGEuY29tL3VzZXJzL3Np
+Z25fdXA/ZW1haWw9cmxhZ2tzcXVmMzBAZ21haWwuY29tJmF1dGg9LTg5ODU1
+NTk3Nzc5MDEyODAzMyI+6rCA7J6FIOyZhOujjO2VmOq4sDwvYT4KICA8L2Jv
+ZHk+CjwvaHRtbD4K
+
+  Rendered test/regmail.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 3450ms (Views: 58.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:18:02 +0900
+
+
+Started GET "/users/sign_up?email=rlagksquf30@gmail.com&auth=-898555977790128033" for ::1 at 2016-06-01 19:18:46 +0900
+Processing by RegistrationsController#new as HTML
+  Parameters: {"email"=>"rlagksquf30@gmail.com", "auth"=>"-898555977790128033"}
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_up) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:11)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_in) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_in) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:12)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(account_update) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:account_update) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:13)
+  Rendered devise/registrations/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 96ms (Views: 93.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:18:47 +0900
+
+
+Started POST "/users" for ::1 at 2016-06-01 19:18:53 +0900
+Processing by RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5VOtAl3d2DZ3OT88ak8KG2TWzXnI4tg+h2C9sAO9vL13cZqNOZVnL+5KigIo4LTFitF/dxL3e3hBOa8P2hzBaA==", "user"=>{"email"=>"rlagksquf30@gmail.com", "last_name"=>"왜만듬?", "first_name"=>"이름", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_up) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_up) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:11)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(sign_in) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:sign_in) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:12)
+DEPRECATION WARNING: [Devise] Changing the sanitized parameters through "Devise::ParameterSanitizer#for(account_update) is deprecated and it will be removed from Devise 4.1.
+Please use the `permit` method:
+
+  devise_parameter_sanitizer.permit(:account_update) do |user|
+    # Your block here.
+  end
+ (called from configure_permitted_parameters at /Users/shine_star_11/Desktop/JeonByulJun/20160602/grouperbetaserver/app/controllers/application_controller.rb:13)
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (6.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'rlagksquf30@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `users` (`first_name`, `last_name`, `email`, `encrypted_password`, `created_at`, `updated_at`) VALUES ('이름', '왜만듬?', 'rlagksquf30@gmail.com', '$2a$10$LHp9XRMILAzCSOrfdaU/JOmqXpYT1T7w5hX7eDXaWL5Ri6nHZmZmO', '2016-06-01 10:18:53', '2016-06-01 10:18:53')[0m
+  [1m[35m (11.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `last_sign_in_at` = '2016-06-01 10:18:53', `current_sign_in_at` = '2016-06-01 10:18:53', `last_sign_in_ip` = '::1', `current_sign_in_ip` = '::1', `sign_in_count` = 1, `updated_at` = '2016-06-01 10:18:53' WHERE `users`.`id` = 2
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE `users` SET `last_seen` = '2016-06-01 10:18:53', `updated_at` = '2016-06-01 10:18:53' WHERE `users`.`id` = 2[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 127ms (ActiveRecord: 19.7ms)
+
+
+Started GET "/" for ::1 at 2016-06-01 19:18:53 +0900
+Processing by TeamController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mTeam Load (0.3ms)[0m  SELECT  `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2  ORDER BY `teams`.`id` ASC LIMIT 1
+Redirected to http://localhost:3000/team/noteam
+Completed 302 Found in 33ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/team/noteam" for ::1 at 2016-06-01 19:18:53 +0900
+Processing by TeamController#noteam as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2  ORDER BY `teams`.`id` ASC LIMIT 1
+  Rendered team/noteam.html.erb within layouts/application (0.4ms)
+  [1m[36mTeam Load (0.6ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:18:53 +0900
+
+
+Started GET "/team/newteam" for ::1 at 2016-06-01 19:18:55 +0900
+Processing by TeamController#newteam as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  Rendered team/newteam.html.erb within layouts/application (0.6ms)
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+Completed 200 OK in 58ms (Views: 55.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/team/create" for ::1 at 2016-06-01 19:19:04 +0900
+Processing by TeamController#create as HTML
+  Parameters: {"authenticity_token"=>"w8n/M9jKRADRFijP//gVfQNsgckxYbeJ4Ai5VvpHkdRR68i8vIL7GUhlnfG9V6uj7Wszx+t0FM8mUavpI+bsAQ==", "teamname"=>"기초 전자회로 및 실습 프로젝트 11조"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `teams` (`teamname`, `created_at`, `updated_at`) VALUES ('기초 전자회로 및 실습 프로젝트 11조', '2016-06-01 10:19:04', '2016-06-01 10:19:04')[0m
+  [1m[35mSQL (11.2ms)[0m  INSERT INTO `teams_users` (`user_id`, `team_id`) VALUES (2, 2)
+  [1m[36m (9.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/team/addmember?team=2
+Completed 302 Found in 40ms (ActiveRecord: 21.8ms)
+
+
+Started GET "/team/addmember?team=2" for ::1 at 2016-06-01 19:19:04 +0900
+Processing by TeamController#addmember as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  Rendered team/addmember.html.erb within layouts/application (0.6ms)
+  [1m[36mTeam Load (0.7ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+Completed 200 OK in 62ms (Views: 57.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:19:05 +0900
+
+
+Started POST "/team/adding" for ::1 at 2016-06-01 19:19:09 +0900
+Processing by TeamController#adding as HTML
+  Parameters: {"authenticity_token"=>"5FtkTuGZxwdwWapIvLwmAFedzE84GA7tdESkAzNuwQR2eVPBhdF4HukqH3b+E5jeuZp+QeINrauyHba86s+80Q==", "team"=>"2", "user_email"=>"luke7515@daum.net"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'luke7515@daum.net'
+  Rendered notice_mailer/invitation.html.erb within layouts/mailer (0.5ms)
+  Rendered notice_mailer/invitation.text.erb within layouts/mailer (0.3ms)
+
+NoticeMailer#invitation: processed outbound mail in 20.7ms
+
+Sent mail to luke7515@daum.net (2587.1ms)
+Date: Wed, 01 Jun 2016 19:19:09 +0900
+From: supporter@grouper.com
+To: luke7515@daum.net
+Message-ID: <574eb69d1caaa_94663ffd40c3fa1479276@Han-Byuls-MacBook-Pro.local.mail>
+Subject: =?UTF-8?Q?=EA=B7=B8=EB=A3=A8=ED=8D=BC=EC=97=90=EC=84=9C?=
+ =?UTF-8?Q?_=EC=B4=88=EB=8C=80=EC=9E=A5=EC=9D=B4?=
+ =?UTF-8?Q?_=EC=99=94=EC=8A=B5=EB=8B=88=EB=8B=A4.?=
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_574eb69d1ba1e_94663ffd40c3fa147911a";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_574eb69d1ba1e_94663ffd40c3fa147911a
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+halo!
+
+thankyou for being here.
+
+----==_mimepart_574eb69d1ba1e_94663ffd40c3fa147911a
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+PGh0bWw+CiAgPGJvZHk+CiAgICA8cD7slYjrhZXtlZjshLjsmpQhIOq3uOuj
+qO2NvOyeheuLiOuLpC48L3A+Cjxicj4KCjxwPuydtOumhOycvOuhnOu2gO2E
+sCDtjIAg6riw7LSIIOyghOyekO2ajOuhnCDrsI8g7Iuk7Iq1IO2UhOuhnOyg
+ne2KuCAxMeyhsOycvOuhnOydmCDstIjrjIDsnqXsnbQg64+E7LCp7ZWY7JiA
+7Iq164uI64ukLjwvcD4KCjxhIGhyZWY9Imh0dHA6Ly9ncm91cGVyYmV0YS5j
+b20vdXNlcnMvc2lnbl91cD9lbWFpbD1sdWtlNzUxNUBkYXVtLm5ldCZhdXRo
+PS0yNzUyMTE5MDQ0MjA3MDU3NTI3Ij7qsIDsnoXtlZjquLA8L2E+CjxwPuun
+jOyVvSDtmITsnqwg6re466Oo7Y287JeQIOuhnOq3uOyduCDrkJjslrTsnojr
+i6TrqbQg66Gc6re47JWE7JuDIO2bhCDstIjrjIDsnqUg66eB7YGs66W8IOyX
+tOyWtOyjvOyWtOyVvCDtjIDsl5Ag65Ok7Ja06rCIIOyImCDsnojsirXri4jr
+i6QuPC9wPgogIDwvYm9keT4KPC9odG1sPgo=
+
+----==_mimepart_574eb69d1ba1e_94663ffd40c3fa147911a--
+
+  Rendered team/adding.html.erb within layouts/application (0.6ms)
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+Completed 200 OK in 2661ms (Views: 48.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:19:11 +0900
+
+
+Started GET "/team/addmember?team=2" for ::1 at 2016-06-01 19:19:14 +0900
+Processing by TeamController#addmember as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.2ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  Rendered team/addmember.html.erb within layouts/application (0.2ms)
+  [1m[36mTeam Load (0.4ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:19:14 +0900
+
+
+Started POST "/team/adding" for ::1 at 2016-06-01 19:19:21 +0900
+Processing by TeamController#adding as HTML
+  Parameters: {"authenticity_token"=>"697p4Ig44rWzKxWp0h8/kBFSMAvIvBAJVJlaSQCipNl5/N5v7HBdrCpYoJeQsIFO/1WCBRKps0+SwEj22QPZDA==", "team"=>"2", "user_email"=>"luke7515@gmail.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mTeam Load (0.1ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'luke7515@gmail.com'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`email` = 'luke7515@gmail.com'[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'luke7515@gmail.com'  [["email", "luke7515@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `teams_users` (`team_id`, `user_id`) VALUES (2, 1)
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  Rendered team/adding.html.erb within layouts/application (0.1ms)
+  [1m[35mTeam Load (0.3ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+Completed 200 OK in 54ms (Views: 43.3ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:19:22 +0900
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-01 19:19:24 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[36mTeam Load (0.3ms)[0m  [1mSELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  Rendered chat/show.html.erb within layouts/application (14.5ms)
+  [1m[35mTeam Load (0.4ms)[0m  SELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC[0m
+  [1m[35mChat Load (0.2ms)[0m  SELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m  [["user_id", 2], ["team_id", 2]]
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+Completed 200 OK in 129ms (Views: 91.4ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:19:24 +0900
+
+
+Started POST "/task/create" for ::1 at 2016-06-01 19:19:55 +0900
+Processing by TaskController#create as HTML
+  Parameters: {"taskname"=>"회로 설계", "duedate"=>"2016-06-01", "user_ids"=>["2", "1"], "authenticity_token"=>"fDrGR8lRg4CR6cNSkJWqddG+8mlISNfPLq2VNuDQU+vuGPHIrRk8mQiadmzSOhSrP7lAZ5JddIno9IeJOXEuPg==", "team"=>"2"}
+  [1m[36mUser Load (12.6ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`id` IN (2, 1)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `tasks` (`taskname`, `duedate`, `sender`, `wansungdo`, `team_id`, `created_at`, `updated_at`) VALUES ('회로 설계', '2016-06-01', 2, 0, 2, '2016-06-01 10:19:55', '2016-06-01 10:19:55')
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `tasks_users` (`user_id`, `task_id`) VALUES (1, 2)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `tasks_users` (`user_id`, `task_id`) VALUES (2, 2)
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/chat/show?team=2
+Completed 302 Found in 34ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/chat/show?team=2" for ::1 at 2016-06-01 19:19:55 +0900
+Processing by ChatController#show as HTML
+  Parameters: {"team"=>"2"}
+  [1m[35mTeam Load (0.2ms)[0m  SELECT  `teams`.* FROM `teams` WHERE `teams`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2 AND `users`.`id` = 2 LIMIT 1
+  [1m[36mTask Load (0.4ms)[0m  [1mSELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.3ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 1 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2[0m
+  [1m[35mTask Load (0.4ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC
+  Rendered chat/show.html.erb within layouts/application (7.5ms)
+  [1m[36mTeam Load (0.5ms)[0m  [1mSELECT `teams`.* FROM `teams` INNER JOIN `teams_users` ON `teams`.`id` = `teams_users`.`team_id` WHERE `teams_users`.`user_id` = 2[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` INNER JOIN `teams_users` ON `users`.`id` = `teams_users`.`user_id` WHERE `teams_users`.`team_id` = 2  ORDER BY `users`.`first_name` ASC
+  [1m[36mChat Load (0.2ms)[0m  [1mSELECT `chats`.* FROM `chats` INNER JOIN `chats_users` ON `chats`.`id` = `chats_users`.`chat_id` WHERE `chats_users`.`user_id` = 2 AND `chats`.`team_id` = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `tasks`.* FROM `tasks` INNER JOIN `tasks_users` ON `tasks`.`id` = `tasks_users`.`task_id` WHERE `tasks_users`.`user_id` = 2 AND `tasks`.`team_id` = 2  ORDER BY `tasks`.`duedate` ASC  [["user_id", 2], ["team_id", 2]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mTask Load (0.2ms)[0m  SELECT `tasks`.* FROM `tasks` WHERE `tasks`.`team_id` = 2 AND `tasks`.`sender` = 2  ORDER BY `tasks`.`duedate` ASC
+Completed 200 OK in 68ms (Views: 61.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/bootstrap-slider.js" for ::1 at 2016-06-01 19:19:55 +0900

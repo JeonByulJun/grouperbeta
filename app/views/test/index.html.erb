@@ -1,0 +1,75 @@
+<div style="text-align:center">
+  <h3>그루퍼에 온 것을 환영합니다.</h3>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div style="text-align:center">채팅창</div>
+    <div style="overflow:auto; width:auto; height:400px;" id="chatbox">
+        <p id = "test"></p>
+    </div>
+    <%= form_for(:message, :url => {:controller => 'message', :action => 'create'}, :remote => true, :html => {:id => "messageform"}) do |f| %>
+      <div class="form-group has-success has-feedback">
+        <div class="input-group">
+          <input type="text" name="message[content]" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" autofocus required>
+          <span class="input-group-addon">+</span>
+        </div>
+      </div>
+
+    <%end%>
+  </div>
+  <div class="col-sm-6">
+    <div style="text-align:center">
+      화이트 보드
+      <textarea id="whiteboard" class="form-control" rows="20"></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+  var ta = document.getElementById('chatbox');
+  ta.scrollTop = ta.scrollHeight;
+</script>
+
+<script>
+function chatbot1(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br>안녕하세요! 저는 그루퍼 봇입니닷ㅎㅎ<br></div></div>");
+}
+function chatbot2(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br>팀을 처음 만드셨네요. 제가 지금 말하고 있는 곳은 채팅창이에요.<br>이곳에서는 팀원들과 대화를 할 수 있어요^^ 회의나 의견도 나눌 수 있죠.<br></div></div>");
+}
+function chatbot3(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br>잠시만 오른쪽을 봐주세요!<br></div></div>");
+}
+function chatbot4(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br>[화이트보드를 수정하였습니다.]<br></div></div>");
+}
+function chatbot5(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br>화이트 보드를 수정하면서 팀원과 의견을 빠르게 정리할 수 있어요ㅎㅎ<br></div></div>");
+}
+function chatbot6(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br>이제 로그인 하고 팀플을 도와주는 클라우드와 워크맵 등의 더 많은 기능을 이용해 보세요.<br></div></div>");
+}
+function chatbot7(){
+  $("#test").append("<div class=\"row\"><div class=\"col-sm-1\"><img src=\"/favicon.ico\" class=\"img-rounded\" style=\"padding-top:2px; padding-left:2px\" width=\"36px\" height=\"36px\"></div><div class=\"col-sm-11\"><strong>그루퍼 봇</strong><br><a href=\"/users/sign_up\">가입하기</a> 또는 <a href=\"/users/sign_in\">로그인</a><br></div></div>");
+}
+function whiteboard1(){
+  $("#whiteboard").append("이곳은 화이트 보드에요. 팀방의 모든 사람들이 함께 쓰는 칠판 같은 곳이죠.");
+}
+function whiteboard2(){
+  $("#whiteboard").append("\r\n초등학교때 학급회의를 하면 항상 칠판에 의견들을 적었었죠. 그루퍼의 화이트보드도 똑같이 사용할 수 있어요!");
+}
+function whiteboard3(){
+  $("#whiteboard").append("\r\n\r\n최종 발표 ppt 개요 순서\r\n1. 목차\r\n2. 사례\r\n3. 자료 분석\r\n4. 인터뷰 내용\r\n5. 참고자료\r\n 이런식으로요 ㅎㅎㅎ");
+}
+setTimeout(chatbot1, 1000);
+setTimeout(chatbot2, 2000);
+setTimeout(chatbot3, 6000);
+setTimeout(whiteboard1, 7000);
+setTimeout(whiteboard2, 9000);
+setTimeout(whiteboard3, 11000);
+setTimeout(chatbot4, 13000);
+setTimeout(chatbot5, 14000);
+setTimeout(chatbot6, 15000);
+setTimeout(chatbot7, 16000);
+</script>

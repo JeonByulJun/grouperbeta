@@ -1,0 +1,29 @@
+<div class="row messages">
+  <div class="col-sm-1">
+    <img src="<%= User.find(message.sender_id).image.url %>" class="img-circle" style="padding-top:2px; padding-left:2px" width="36px" height="36px">
+  </div>
+  <div class="col-sm-11">
+    <div id="message<%=message.id%>">
+      <div onmouseover="onmessage(this)" onmouseout="outmessage(this)">
+        <strong><%=User.find(message.sender_id).first_name%></strong><br>
+
+
+        <% if message.messagetype == 0 %>
+          <%=message.content%><br>
+        <% end %>
+        <% if message.messagetype == 1 %>
+
+          <a href="<%=message.imagemessage.imagemessageupload.url%>"><img class="imagemessages" src="<%=message.imagemessage.imagemessageupload.url%>" style="padding: 10px; max-width: 70%; height: auto;"></a><br>
+
+        <% end %>
+        <% if message.messagetype == 2 && message.filemessage.filemessageupload.file %>
+
+          <%= link_to message.filemessage.filemessageupload.file.filename, message.filemessage.filemessageupload.url, :target => "_blank" %><br>
+        <% end %>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

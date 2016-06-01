@@ -1,0 +1,79 @@
+<style>
+body
+{
+background-image:url('/bgpic.jpg');
+background-repeat:no-repeat;
+background-size: cover;
+}
+</style>
+
+<div style="text-align:center">
+  <font color="white"><h1><br><br><br><br><br>많은 사람들이 벌써<br>그루퍼를 이용해 팀플을 시작하고 있어요</h1></font>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form class="form-inline" action="/test/index" method="post">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="exampleInputName2" placeholder="팀 이름" required>
+            </div>
+            <button type="submit" class="btn btn-default">팀 만들기</button>
+          </form>
+          <br>
+          누구나 효율적인 팀플을 원합니다.<br>여기 실시간 의사결정과 파일을 공유할 수 있는 서비스가 있습니다.<br>팀 이름을 적고 바로 이용해보세요!
+          <br>
+          <a class="btn btn-link" role="button" data-toggle="modal" data-target="#email">5초 만에 가입하기</a>
+          <a class="btn btn-link" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            로그인
+          </a>
+            
+            <div class="modal fade bs-example-modal-sm" id="email" tabindex="-1" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="form-group">
+                    <h3>가입 초대장 발송하기</h3>
+                    <form id="regmail" class="form-inline" action="/test/regmail" method="post">
+                      <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+                      <div class="field">
+                        <input class="form-control" id="user_email" name="email" type="email" placeholder="이메일" required/>
+                        <input type="submit" class="btn btn-default" role="button" value="발송">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="collapse" id="collapseExample">
+            <div style="text-align:center">
+              <h2>로그인</h2>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <div class="field">
+                  <input class="form-control" id="user_email" name="user[email]" type="email" placeholder="이메일" autofocus/>
+                </div>
+      
+                <div class="field">
+                  <input class="form-control" id="user_password" name="user[password]" type="password" placeholder="비밀번호" autocomplete="off"/>
+                </div>
+      
+                <% if devise_mapping.rememberable? -%>
+                  <div class="field">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me %>
+                  </div>
+                <% end -%>
+      
+                <div class="fdas">
+                  <button type="submit" class="btn btn-default">로그인</button>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

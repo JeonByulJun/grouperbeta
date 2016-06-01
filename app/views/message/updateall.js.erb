@@ -1,0 +1,6 @@
+<% @unload.each_with_index do |reload, p| %>
+  <% if @check == "false" || p+1 != @unload.count %>
+    $("#unloadmessages").append('<div class="row messages"><div class="col-sm-1"><img src="<%= User.find(reload.sender_id).image.url %>" class="img-circle" onmouseover="bigImg(this)" onmouseout="normalImg(this)" style="padding-top:2px; padding-left:2px" width="36px" height="36px"></div><div class="col-sm-11"><div id="message<%=reload.id%>"><strong><%=User.find(reload.sender_id).first_name%></strong><br><% if reload.messagetype == 0 %><%=reload.content%><br><% end %><% if reload.messagetype == 1 %><a href="<%=reload.imagemessage.imagemessageupload.url%>"><img class="imagemessage" src="<%=reload.imagemessage.imagemessageupload.url%>" style="padding: 10px; max-width: 70%; height: auto;"></a><br><% end %><% if reload.messagetype == 2 %>THIS CONTENT IS FILE!<br><% end %></div></div></div>');
+    $('#checkmessage').val("<%=@number%>");
+  <% end %>
+<% end %>
