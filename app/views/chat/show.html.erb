@@ -1,11 +1,12 @@
 <div class="row">
-  <div class="row">
-      <aside style="padding-left: 12px; padding-top: 12px;">
-      <img class="img-rounded" alt="profile" src="/favicon.ico" width="100px" height="100px" style="float: left; margin-right: 12px; margin-top: 20px; margin-bottom: 20px;">
-      </aside>
-      <h2> <%=@team.teamname%></h2>
+  <div class="row" style="padding-left:30px;">
+    <div class="col-xs-3" style="min-width: 180px;">
+      <img class="img-rounded" alt="profile" src="/favicon.ico" width="160px" height="160px" style="float:right;">
+    </div>
+    <div class="col-xs-9" style="vertical-align: middle; padding-top: 20px;">
+      <h2 style="margin-top: 0px; word-wrap:break-word; word-break:break-all;"> <%=@team.teamname%></h2>
 
-      <h4 data-toggle="collapse" aria-expanded="false" aria-controls="name" style="font-size: 15px; text-decoration: none;"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <%=@team.belong%>
+      <h4 data-toggle="collapse" aria-expanded="false" aria-controls="name" style="font-size: 15px; text-decoration: none; word-wrap:break-word; word-break:break-all;"> <span class="glyphicon glyphicon-education" aria-hidden="true"></span> <%=@team.belong%>
       <button class="btn btn-bel btn-xs" type="button" data-toggle="collapse" data-placement="bottom" data-target="#belong" aria-expanded="false" aria-controls="belong"><span class="glyphicon glyphicon-pencil"></span></button></h4>
 
       <div class="collapse" id="belong">
@@ -16,10 +17,10 @@
         </form>
       </div>
 
-      <h5 data-toggle="collapse" aria-expanded="false" aria-controls="name" style="font-size: 13px; color: gray;"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%=@team.location%>
+      <h5 data-toggle="collapse" aria-expanded="false" aria-controls="name" style="font-size: 13px; color: gray; word-wrap:break-word; word-break:break-all;"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%=@team.location%>
       <button class="btn btn-loc btn-xs" type="button" data-toggle="collapse" data-placement="bottom" data-target="#location" aria-expanded="false" aria-controls="location"><span class="glyphicon glyphicon-pencil"></span></button></h5>
       
-      <div class="collapse" id="location" style="margin-left: 125px;">
+      <div class="collapse" id="location" style="">
         <form class="form-inline" action="/team/change_etc2" method="post" enctype="multipart/form-data">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
           <%= hidden_field_tag "team", @team.id %>
@@ -27,16 +28,19 @@
         </form>
       </div>
     </div>
+  </div>
 
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist" style="padding-left: 70px; margin-top: 20px;">
+  <!-- Nav tabs -->
+  <div style="padding-left: 40px; margin-top: 20px;">
+    <ul class="nav nav-tabs" role="tablist">
       <!--<li role="presentation" class="active"><a href="#taskcalendar" aria-controls="home" role="tab" data-toggle="tab">Schedule</a></li>-->
       <li role="presentation" class="active"><a href="#tasklist" aria-controls="home" role="tab" data-toggle="tab">나의 할일</a></li>
       <li role="presentation"><a href="#taskindiv" aria-controls="home" role="tab" data-toggle="tab">팀 상황</a></li>
     </ul>
+  </div>
 
     <!-- Tab panes -->
-    <div class="tab-content">
+    <div class="tab-content" style="padding-left:30px;">
       <!--<div role="tabpanel" class="tab-pane active" id="taskcalendar">
         <div id="cal">
           <div class="header">
